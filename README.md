@@ -1,4 +1,4 @@
 Vim Files
 =========
 
-Files I use to set Vim
+Files I use to set up Vim
