@@ -1,5 +1,5 @@
-syntax enable
-set background=dark
+Syntax enable
+set background=light
 set t_Co=256
 let g:solarized_termcolors=256
 colorscheme solarized
@@ -26,6 +26,8 @@ set incsearch
 " Indents code
 set smartindent
 
+map gbc yypkA =<Esc>jOscale=2<Esc>:.,+1!bc<CR>kJ
+imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 " Below from - https://github.com/spf13/spf13-vim/blob/master/.vimrc 
 
 " Vim UI {
