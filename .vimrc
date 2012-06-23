@@ -4,12 +4,24 @@ set t_Co=256
 let g:solarized_termcolors=256
 colorscheme solarized
 
-" use 'jk' to switch to normal mode
-:imap jk <Esc>
+" clear search with spacebar
+nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
+" normal mode with kj
+:imap kj <Esc>
+" navigate splits
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
-" Switch between windows and then maxamize window
-:map <C-J> <C-W>j<C-W>_
-:map <C-K> <C-W>k<C-W>_
+" PHP comment out line
+let @c='0i//^['
+
+" calculator in insert mode
+imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR> 
+
+" Save files after accidently forgetting to sudo
+cmap w!! w !sudo tee % >/dev/null
 
 " sets the min widnow height to 0 - only show the file name
 set wmh=0
@@ -57,9 +69,9 @@ set smartindent
 	set scrolljump=5 				" lines to scroll when cursor leaves screen
 	set scrolloff=3 				" minimum lines to keep above and below cursor
 	set foldenable  				" auto fold code
-    set list
-    set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
-    set invlist
+	set list
+	set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
+	set invlist
 
 " }
 
@@ -67,8 +79,10 @@ set smartindent
 	set nowrap                     	" wrap long lines
 	set autoindent                 	" indent at the same level of the previous line
 	set shiftwidth=4               	" use indents of 4 spaces
-"	set expandtab 	  	     		" tabs are spaces, not tabs
-    set et!                         " turn of tab to spaces
+	set expandtab 	  	     		" tabs are spaces, not tabs
+   	set et!                         " turn of tab to spaces
 	set tabstop=4 					" an indentation every four columns
 	set softtabstop=4 				" let backspace delete indent
+	set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
+	set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 " }
