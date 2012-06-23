@@ -4,6 +4,26 @@ set t_Co=256
 let g:solarized_termcolors=256
 colorscheme solarized
 
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+  " Enable file type detection
+  filetype on
+   
+  " Customisations based on house-style (arbitrary)
+  autocmd FileType php setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType html setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType css setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+   
+  " Treat .rss files as XML
+  autocmd BufNewFile,BufRead *.rss setfiletype xml
+endif
+
+
+let g:netrw_liststyle=3 " Use tree-mode as default view
+let g:netrw_browse_split=4 " Open file in previous buffer
+let g:netrw_preview=1 " preview window shown in a vertically split
+
 " clear search with spacebar
 nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
 " normal mode with kj
@@ -14,8 +34,8 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-map <C-i> gt
-map <C-u> gT
+map <C-m> gt
+map <C-n> gT
 " PHP comment out line
 let @c='0i//^['
 
@@ -81,7 +101,6 @@ set smartindent
 	set nowrap                     	" wrap long lines
 	set autoindent                 	" indent at the same level of the previous line
 	set shiftwidth=4               	" use indents of 4 spaces
-	set expandtab 	  	     		" tabs are spaces, not tabs
    	set et!                         " turn of tab to spaces
 	set tabstop=4 					" an indentation every four columns
 	set softtabstop=4 				" let backspace delete indent
