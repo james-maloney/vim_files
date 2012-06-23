@@ -14,6 +14,8 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+map <C-i> gt
+map <C-u> gT
 " PHP comment out line
 let @c='0i//^['
 
