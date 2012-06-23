@@ -24,10 +24,8 @@ let g:netrw_liststyle=3 " Use tree-mode as default view
 let g:netrw_browse_split=4 " Open file in previous buffer
 let g:netrw_preview=1 " preview window shown in a vertically split
 
-" clear search with spacebar
-nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
-" normal mode with kj
-:imap kj <Esc>
+" normal mode with jk
+:imap jk <Esc>
 " navigate splits
 map <C-h> <C-w>h
 map <C-j> <C-w>j
