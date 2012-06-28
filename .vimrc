@@ -1,8 +1,12 @@
-Syntax enable
+syntax enable
 set background=light
 set t_Co=256
 let g:solarized_termcolors=256
 colorscheme solarized
+
+" Spell check
+set spell
+setlocal spellfile+=~/.vim/spell/en.utf-8.add
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -20,20 +24,10 @@ if has("autocmd")
 endif
 
 
-let g:netrw_liststyle=3 " Use tree-mode as default view
-let g:netrw_browse_split=4 " Open file in previous buffer
-let g:netrw_preview=1 " preview window shown in a vertically split
 
 " normal mode with jk
 :imap jk <Esc>
-" navigate splits
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 
-map <C-m> gt
-map <C-n> gT
 " PHP comment out line
 let @c='0i//^['
 
@@ -55,14 +49,35 @@ set autochdir
 " jumps to search word as you type
 set incsearch
 
-" Indents code
-set smartindent
 
 map gbc yypkA =<Esc>jOscale=2<Esc>:.,+1!bc<CR>kJ
 imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
+
+" Window and file Managment 
+"{
+    " Use tree-mode as default view
+    let g:netrw_liststyle=3 
+
+    " preview window shown in a vertically split
+    let g:netrw_preview=1 
+
+    " navigate splits
+    map <C-h> <C-w>h
+    map <C-j> <C-w>j
+    map <C-k> <C-w>k
+    map <C-l> <C-w>l
+
+    " open file in split to right
+    map oo o<C-w>L
+
+    " expand current vert split to full width
+    map ff <C-w><Bar>
+"}
+
 " Below from - https://github.com/spf13/spf13-vim/blob/master/.vimrc 
 
-" Vim UI {
+" Vim UI 
+"{
 	set tabpagemax=15 				" only show 15 tabs
 	set showmode                   	" display the current mode
 
@@ -94,12 +109,13 @@ imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 	set list
 	set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
 	set invlist
-
 " }
 
-" Formatting {
+" Formatting 
+"{
 	set nowrap                     	" wrap long lines
 	set autoindent                 	" indent at the same level of the previous line
+    set smartindent
 	set shiftwidth=4               	" use indents of 4 spaces
    	set et!                         " turn of tab to spaces
 	set tabstop=4 					" an indentation every four columns
