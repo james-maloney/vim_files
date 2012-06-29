@@ -28,9 +28,6 @@ endif
 " normal mode with jk
 :imap jk <Esc>
 
-" PHP comment out line
-let @c='0i//^['
-
 " calculator in insert mode
 imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR> 
 
@@ -48,6 +45,7 @@ set autochdir
 
 " jumps to search word as you type
 set incsearch
+
 
 
 map gbc yypkA =<Esc>jOscale=2<Esc>:.,+1!bc<CR>kJ
@@ -72,6 +70,19 @@ imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 
     " expand current vert split to full width
     map ff <C-w><Bar>
+"}
+
+" Plugins
+"{
+    " Comments plugin
+    source ~/vim_files/.vim/plugins/comments.vim
+"}
+
+" Comment Block formating
+"{
+    " auto format comment blocks
+    set comments=sl:/**,mb:\ *,elx:\ */
+    set formatoptions+=r
 "}
 
 " Below from - https://github.com/spf13/spf13-vim/blob/master/.vimrc 
@@ -120,6 +131,5 @@ imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
    	set et!                         " turn of tab to spaces
 	set tabstop=4 					" an indentation every four columns
 	set softtabstop=4 				" let backspace delete indent
-	set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 	set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 " }
