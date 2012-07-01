@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/solarized"]
 	path = .vim/bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/numbers"]
+	path = .vim/bundle/numbers
+	url = git://github.com/myusuf3/numbers.vim.git
