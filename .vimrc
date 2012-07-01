@@ -46,8 +46,6 @@ set autochdir
 " jumps to search word as you type
 set incsearch
 
-
-
 map gbc yypkA =<Esc>jOscale=2<Esc>:.,+1!bc<CR>kJ
 imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 
@@ -76,6 +74,7 @@ imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR>
 "{
     " Comments plugin
     source ~/vim_files/.vim/plugins/comments.vim
+    source ~/vim_files/.vim/plugins/allign_assignments.vim
 "}
 
 " Comment Block formating
