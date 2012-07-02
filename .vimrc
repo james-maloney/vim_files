@@ -19,15 +19,6 @@
     setlocal spellfile+=~/.vim/spell/en.utf-8.add
 "}
 
-" Mouse
-"{
-    " Enable mouse everywhere
-    set mouse=a
-    " Hide mouse pointer while typing
-    set mousehide
-    set mousemodel=popup
-"}
-
 " Only do this part when compiled with support for autocommands (work in progress)
 "{
     if has("autocmd")
@@ -111,6 +102,10 @@
     set formatoptions+=r
 "}
 
+" Yank rink config
+"{
+    let g:yankring_min_element_length = 2
+"}
 " Below from - https://github.com/spf13/spf13-vim/blob/master/.vimrc (partial)
 
 " Vim UI 
