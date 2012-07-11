@@ -1,6 +1,12 @@
 " Pathogen
 "{
-	call pathogen#runtime_append_all_bundles()
+    " Ignore list
+    let g:pathogen_disabled = []
+    if v:version < '703'
+        call add(g:pathogen_disabled, 'numbers')
+    endif
+
+    call pathogen#infect()
 	call pathogen#helptags()
 "}
 
@@ -118,14 +124,20 @@
 
 	" highlight current line
 	set cursorline
-	hi cursorline guibg=#333333 	" highlight bg color of current line
-	hi CursorColumn guibg=#333333   " highlight cursor
+    " highlight bg color of current line
+	hi cursorline guibg=#333333
+    " highlight cursor
+    hi CursorColumn guibg=#333333
 
 	if has('cmdline_info')
-		set ruler                  	" show the ruler
-		set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
-		set showcmd                	" show partial commands in status line and
+		" show the ruler
+		set ruler
+		" a ruler on steroids
+		set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+		" show partial commands in status line and
+		set showcmd
 	endif
+
 	" backspace for dummys
 	set backspace=indent,eol,start	
 	" No extra spaces between rows
