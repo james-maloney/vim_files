@@ -43,6 +43,7 @@
 		"Only add closetag on appropriate file types"
 		autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 		autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
 	endif
 "}
 
@@ -75,6 +76,12 @@
 	
 	" Save files after accidently forgetting to sudo
 	cmap w!! w !sudo tee % >/dev/null
+
+    " Don't create .swp file
+    set noswapfile
+
+    " use visual bell instead of beep
+    set visualbell
 "}
 
 " Window and file management 
@@ -82,6 +89,9 @@
 	" Use tree-mode as default view
 	let g:netrw_liststyle=3 
 	
+    " Set tree-mode file ignores
+    let g:netrw_list_hide= '.git,.sass-cache,.svn,nbproject'
+
 	" preview window shown in a vertically split
 	let g:netrw_preview=1 
 	
@@ -173,8 +183,13 @@
 	set softtabstop=4
 " }
 
-" Add .vimrc_append if it exists
+" Add add extra files if they exist
 "{
+    let WLION = expand("~/vim_files/.work")
+	if filereadable(WLION)
+		source ~/vim_files/.work
+	endif
+
     let APPEND = expand("~/vim_files/.vimrc_append")
 	if filereadable(APPEND)
 		source ~/vim_files/.vimrc_append
