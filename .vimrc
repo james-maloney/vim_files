@@ -15,7 +15,7 @@
 	syntax enable
 	set t_Co=256
 	let g:solarized_termcolors=256
-	set background=light
+	set background=dark
 	colorscheme solarized
 "}
 
@@ -149,15 +149,15 @@
 	endif
 
 	" backspace for dummys
-	set backspace=indent,eol,start	
+	set backspace=indent,eol,start
 	" No extra spaces between rows
-	set linespace=0					
+	set linespace=
 	" Line numbers on
 	set nu
 	" show matching brackets/parenthesis
 	set showmatch
 	" windows can be 0 line high
-	set winminheight=0 
+	set winminheight=0
 	" backspace and cursor keys wrap to
 	set whichwrap=b,s,h,l,<,>,[,]
 	" lines to scroll when cursor leaves screen
@@ -166,7 +166,7 @@
 	set scrolloff=3
 " }
 
-" Formatting 
+" Formatting
 "{
 	" wrap long lines
 	set nowrap
@@ -182,7 +182,16 @@
 	" let backspace delete indent
 	set softtabstop=4
 " }
+" Highligts
+"{
+	highlight ExtraWhiteSpace ctermbg=darkgreen
+	" Show trailing whitespace
+	" Show spaces before a tab
+	" Show tabs that are not at the start of a line:
+	" Show spaces used for indenting (so you use only tabs for indenting).
+	match ExtraWhitespace /\s\+$\| \+\ze\t\| [^\t]\zs\t\+\|^\t*\zs \+/
 
+"}
 " Status Line
 "{
 	"" Clear
