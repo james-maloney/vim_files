@@ -1,12 +1,12 @@
 " Pathogen
 "{
-    " Ignore list
-    let g:pathogen_disabled = []
-    if v:version < '703'
-        call add(g:pathogen_disabled, 'numbers')
-    endif
+	" Ignore list
+	let g:pathogen_disabled = []
+	if v:version < '703'
+		call add(g:pathogen_disabled, 'numbers')
+	endif
 
-    call pathogen#infect()
+	call pathogen#infect()
 	call pathogen#helptags()
 "}
 
@@ -21,7 +21,7 @@
 
 " Spell check
 "{
-	set spell
+	setlocal spell spelllang=en_us
 	setlocal spellfile+=~/.vim/spell/en.utf-8.add
 "}
 
@@ -67,21 +67,26 @@
 "{
 	" Set directory to current file
 	set autochdir
-	
+
 	" normal mode with jk
 	imap jk <Esc>
-	
+
 	" calculator in insert mode
 	imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR> 
-	
+
 	" Save files after accidently forgetting to sudo
 	cmap w!! w !sudo tee % >/dev/null
 
-    " Don't create .swp file
-    set noswapfile
+	" Don't create .swp file
+	set noswapfile
 
-    " use visual bell instead of beep
-    set visualbell
+	" use visual bell instead of beep
+	set visualbell
+
+	" set paste toggle
+
+    "noremap <F2> :set invpaste paste?<CR>
+	"set pastetoggle=<F2>
 "}
 
 " Window and file management 
@@ -89,8 +94,8 @@
 	" Use tree-mode as default view
 	let g:netrw_liststyle=3 
 	
-    " Set tree-mode file ignores
-    let g:netrw_list_hide= '.git,.sass-cache,.svn,nbproject'
+	" Set tree-mode file ignores
+	let g:netrw_list_hide= '.git,.sass-cache,.svn,nbproject'
 
 	" preview window shown in a vertically split
 	let g:netrw_preview=1 
@@ -122,6 +127,7 @@
 "{
 	let g:yankring_min_element_length = 2
 	let g:yankring_history_dir = '~/.vim/yanks'
+	let g:yankring_zap_keys = 'f F t T / ?'
 "}
 " Below from - https://github.com/spf13/spf13-vim/blob/master/.vimrc (partial)
 
@@ -134,10 +140,10 @@
 
 	" highlight current line
 	set cursorline
-    " highlight bg color of current line
+	" highlight bg color of current line
 	hi cursorline guibg=#333333
-    " highlight cursor
-    hi CursorColumn guibg=#333333
+	" highlight cursor
+	hi CursorColumn guibg=#333333
 
 	if has('cmdline_info')
 		" show the ruler
@@ -173,18 +179,30 @@
 	" indent at the same level of the previous line
 	set autoindent
 	set smartindent
+	" don't expand tab to spaces
+	set noexpandtab
 	" use indents of 4 spaces
 	set shiftwidth=4
-	" turn off tab to spaces
-	set et!
 	" an indentation every four columns
 	set tabstop=4
 	" let backspace delete indent
 	set softtabstop=4
 " }
+
+" Folding
+"{
+   "fold based on indent
+	set foldmethod=indent
+	"deepest fold is 10 levels
+	set foldnestmax=10
+	"don't fold by default
+	set nofoldenable
+	set foldlevel=1
+"}
+
 " Highligts
 "{
-	highlight ExtraWhiteSpace ctermbg=darkgreen
+	highlight ExtraWhiteSpace ctermbg=darkgray
 	" Show trailing whitespace
 	" Show spaces before a tab
 	" Show tabs that are not at the start of a line:
@@ -195,40 +213,40 @@
 " Status Line
 "{
 	"" Clear
-    "set statusline=
+	"set statusline=
 	"" buffer number
-    "set statusline +=%1*\ %n\ %*
+	"set statusline +=%1*\ %n\ %*
 	"" file format
-    "set statusline +=%5*%{&ff}%*
+	"set statusline +=%5*%{&ff}%*
 	"" file type
-    "set statusline +=%3*%y%*
+	"set statusline +=%3*%y%*
 	"" full path
-    "set statusline +=%4*\ %<%F%*
+	"set statusline +=%4*\ %<%F%*
 	"" modified flag
-    "set statusline +=%2*%m%*
+	"set statusline +=%2*%m%*
 	"" current line
-    "set statusline +=%1*%=%5l%*
+	"set statusline +=%1*%=%5l%*
 	"" total lines
-    "set statusline +=%2*/%L%*
+	"set statusline +=%2*/%L%*
 	"" virtual column number
-    "set statusline +=%1*%4v\ %*
+	"set statusline +=%1*%4v\ %*
 	"" character under cursor"
-    "set statusline +=%2*0x%04B\ %*
+	"set statusline +=%2*0x%04B\ %*
 
-    "highlight StatusLine ctermbg=333333
+	"highlight StatusLine ctermbg=333333
 
 	"" Always show status line"
-    "set laststatus=2
+	"set laststatus=2
 "}
 
 " Add add extra files if they exist
 "{
-    let WLION = expand("~/vim_files/.work")
+	let WLION = expand("~/vim_files/.work")
 	if filereadable(WLION)
 		source ~/vim_files/.work
 	endif
 
-    let APPEND = expand("~/vim_files/.vimrc_append")
+	let APPEND = expand("~/vim_files/.vimrc_append")
 	if filereadable(APPEND)
 		source ~/vim_files/.vimrc_append
 	endif
