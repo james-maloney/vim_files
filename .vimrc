@@ -2,6 +2,7 @@
 "{
 	" Ignore list
 	let g:pathogen_disabled = []
+
 	if v:version < '703'
 		call add(g:pathogen_disabled, 'numbers')
 	endif
@@ -61,6 +62,8 @@
 	set ignorecase
 	" set working dir to current file
 	set smartcase
+
+	command! -nargs=+ MyGrep execute 'silent grep! <args>' | copen 33
 "}
 
 "Misc
@@ -85,8 +88,8 @@
 
 	" set paste toggle
 
-    "noremap <F2> :set invpaste paste?<CR>
-	"set pastetoggle=<F2>
+    noremap <F2> :set invpaste paste?<CR>
+	set pastetoggle=<F2>
 "}
 
 " Window and file management 
@@ -128,6 +131,7 @@
 	let g:yankring_min_element_length = 2
 	let g:yankring_history_dir = '~/.vim/yanks'
 	let g:yankring_zap_keys = 'f F t T / ?'
+	let g:yankring_enabled = 0  " Disables the yankring
 "}
 " Below from - https://github.com/spf13/spf13-vim/blob/master/.vimrc (partial)
 
