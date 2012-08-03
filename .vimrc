@@ -87,9 +87,11 @@
 	set visualbell
 
 	" set paste toggle
-
     noremap <F2> :set invpaste paste?<CR>
 	set pastetoggle=<F2>
+
+	" put new split window on the right
+	set splitright
 "}
 
 " Window and file management 
