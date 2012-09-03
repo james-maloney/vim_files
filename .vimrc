@@ -98,15 +98,20 @@
 
 "Leader Commands
 "}
-  " use ,, for omni completion
-  let mapleader=","
-  inoremap <leader>, <C-x><C-o>
-  set completeopt+=longest
-  autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-  autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+	" use ,, for omni completion
+	let mapleader=","
+	inoremap <leader>, <C-x><C-o>
+	set completeopt+=longest
+	autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+	autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-  " Select pasted text
-  nnoremap <leader>v V`]
+	" Select pasted text
+	nnoremap <leader>v V`]
+	noremap <F2> :set invpaste paste?<CR>
+	set pastetoggle=<F2>
+
+	" put new split window on the right
+	set splitright
 "}
 
 " Window and file management
@@ -148,7 +153,7 @@
 	let g:yankring_min_element_length = 2
 	let g:yankring_history_dir = '~/.vim/yanks'
 	let g:yankring_zap_keys = 'f F t T / ?'
-	let g:yankring_enabled = 0  " Disables the yankring
+	let g:yankring_enabled = 0	" Disables the yankring
 "}
 " Below from - https://github.com/spf13/spf13-vim/blob/master/.vimrc (partial)
 
