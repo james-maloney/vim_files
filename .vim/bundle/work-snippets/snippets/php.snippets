@@ -1,0 +1,10 @@
+snippet kd
+	if (IS_DEV) {
+		echo Kohana::debug(${1});
+	}
+snippet kdd
+	if (IS_DEV) {
+		echo Kohana::debug(${1});
+		die;
+	}
+
