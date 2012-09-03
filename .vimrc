@@ -1,3 +1,10 @@
+"Go
+"{
+	set rtp+=$GOROOT/misc/vim
+	filetype plugin indent on
+	setlocal omnifunc=gocomplete#Complete
+"}
+
 " Pathogen
 "{
 	" Ignore list
@@ -15,7 +22,7 @@
 "{
 	syntax enable
 	set t_Co=256
-	let g:solarized_termcolors=256
+	let g:solarized_termcolors=16
 	set background=dark
 	colorscheme solarized
 "}
@@ -31,16 +38,16 @@
 	if has("autocmd")
 		" Enable file type detection
 		filetype on
-		 
+
 		" Customisations based on house-style (arbitrary)
 		autocmd FileType php setlocal ts=4 sts=4 sw=4 noexpandtab
 		autocmd FileType html setlocal ts=4 sts=4 sw=4 noexpandtab
 		autocmd FileType css setlocal ts=4 sts=4 sw=4 noexpandtab
 		autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
-		 
+
 		" Treat .rss files as XML
 		autocmd BufNewFile,BufRead *.rss setfiletype xml
-		
+
 		"Only add closetag on appropriate file types"
 		autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 		autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
@@ -74,9 +81,6 @@
 	" normal mode with jk
 	imap jk <Esc>
 
-	" calculator in insert mode
-	imap <silent> <C-C> <C-R>=string(eval(input("Calculate: ")))<CR> 
-
 	" Save files after accidently forgetting to sudo
 	cmap w!! w !sudo tee % >/dev/null
 
@@ -87,31 +91,44 @@
 	set visualbell
 
 	" set paste toggle
-
-    noremap <F2> :set invpaste paste?<CR>
+	noremap <F2> :set invpaste paste?<CR>
 	set pastetoggle=<F2>
+
 "}
 
-" Window and file management 
+"Leader Commands
+"}
+  " use ,, for omni completion
+  let mapleader=","
+  inoremap <leader>, <C-x><C-o>
+  set completeopt+=longest
+  autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+  autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+  " Select pasted text
+  nnoremap <leader>v V`]
+"}
+
+" Window and file management
 "{
 	" Use tree-mode as default view
-	let g:netrw_liststyle=3 
-	
+	let g:netrw_liststyle=3
+
 	" Set tree-mode file ignores
 	let g:netrw_list_hide= '.git,.sass-cache,.svn,nbproject'
 
 	" preview window shown in a vertically split
-	let g:netrw_preview=1 
-	
+	let g:netrw_preview=1
+
 	" navigate splits
 	map <C-h> <C-w>h
 	map <C-j> <C-w>j
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
-	
+
 	" open file in split to right
 	map oo o<C-w>L
-	
+
 	" expand current vert split to full width
 	map ff <C-w><Bar>
 
@@ -135,7 +152,7 @@
 "}
 " Below from - https://github.com/spf13/spf13-vim/blob/master/.vimrc (partial)
 
-" Vim UI 
+" Vim UI
 "{
 	" only show 15 tabs
 	set tabpagemax=15
@@ -195,7 +212,7 @@
 
 " Folding
 "{
-   "fold based on indent
+	"fold based on indent
 	set foldmethod=indent
 	"deepest fold is 10 levels
 	set foldnestmax=10
