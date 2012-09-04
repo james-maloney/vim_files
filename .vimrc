@@ -83,8 +83,11 @@
 	" Don't create .swp file
 	set noswapfile
 
-	" use visual bell instead of beep
-	set visualbell
+	" No visual or audible errors
+	set noerrorbells visualbell t_vb=
+	if has('autocmd')
+		autocmd GUIEnter * set visualbell t_vb=
+	endif
 
 	" set paste toggle
     noremap <F2> :set invpaste paste?<CR>
