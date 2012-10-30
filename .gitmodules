@@ -1,24 +1,12 @@
-[submodule ".vim/bundle/delmitmate"]
-	path = .vim/bundle/delmitmate
-	url = git://github.com/Raimondi/delimitMate.git
-[submodule ".vim/bundle/closetag"]
-	path = .vim/bundle/closetag
-	url = git://github.com/docunext/closetag.vim.git
 [submodule ".vim/bundle/fugitive"]
 	path = .vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/solarized"]
 	path = .vim/bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule ".vim/bundle/numbers"]
-	path = .vim/bundle/numbers
-	url = git://github.com/myusuf3/numbers.vim.git
 [submodule ".vim/bundle/surround"]
 	path = .vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule ".vim/bundle/yankring"]
-	path = .vim/bundle/yankring
-	url = git://github.com/vim-scripts/YankRing.vim.git
 [submodule ".vim/bundle/markdown"]
 	path = .vim/bundle/markdown
 	url = git://github.com/hallison/vim-markdown.git
@@ -40,9 +28,3 @@
 [submodule ".vim/bundle/command-t"]
 	path = .vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
-[submodule ".vim/bundle/vim-php-namespace"]
-	path = .vim/bundle/vim-php-namespace
-	url = git://github.com/arnaud-lb/vim-php-namespace.git
-[submodule ".vim/bundle/phpcomplete"]
-	path = .vim/bundle/phpcomplete
-	url = git://github.com/shawncplus/phpcomplete.vim.git
