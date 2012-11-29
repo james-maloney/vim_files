@@ -15,6 +15,9 @@
 	" Ignore list
 	let g:pathogen_disabled = []
 
+	" Powerline is slowing vim down
+	call add(g:pathogen_disabled, 'vim-powerline')
+
 	if v:version < '703'
 		call add(g:pathogen_disabled, 'numbers')
 	endif
@@ -30,6 +33,12 @@
 	"let g:solarized_termcolors=16
 	set background=dark
 	colorscheme solarized
+"}
+
+" Command T
+"{
+	set wildignore+=app/cache/**
+	set wildignore+=web/**
 "}
 
 "Session options
@@ -190,11 +199,16 @@
 	set showmode
 
 	" highlight current line
-	set cursorline
+	" set cursorline
 	" highlight bg color of current line
-	hi cursorline guibg=#333333
+	" hi cursorline guibg=#333333
 	" highlight cursor
-	hi CursorColumn guibg=#333333
+	" hi CursorColumn guibg=#333333
+
+	" Improves vim cursor speed
+	set nocursorcolumn
+	set nocursorline
+	syntax sync minlines=256
 
 	if has('cmdline_info')
 		" show the ruler
@@ -253,12 +267,12 @@
 
 " Highligts
 "{
-	highlight ExtraWhiteSpace ctermbg=darkgray
+	" highlight ExtraWhiteSpace ctermbg=darkgray
 	" Show trailing whitespace
 	" Show spaces before a tab
 	" Show tabs that are not at the start of a line:
 	" Show spaces used for indenting (so you use only tabs for indenting).
-	match ExtraWhitespace /\s\+$\| \+\ze\t\| [^\t]\zs\t\+\|^\t*\zs \+/
+	" match ExtraWhitespace /\s\+$\| \+\ze\t\| [^\t]\zs\t\+\|^\t*\zs \+/
 
 "}
 " Status Line
