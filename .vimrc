@@ -56,23 +56,6 @@
 	setlocal spellfile+=~/.vim/spell/en.utf-8.add
 "}
 
-" Only do this part when compiled with support for autocommands (work in progress)
-"{
-	if has("autocmd")
-		" Enable file type detection
-		filetype on
-
-		" Customisations based on house-style (arbitrary)
-		autocmd FileType php setlocal ts=4 sts=4 sw=4 noexpandtab
-		autocmd FileType html setlocal ts=4 sts=4 sw=4 noexpandtab
-		autocmd FileType css setlocal ts=4 sts=4 sw=4 noexpandtab
-		autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
-
-		" Treat .rss files as XML
-		autocmd BufNewFile,BufRead *.rss setfiletype xml
-	endif
-"}
-
 " Search
 "{
 	" clear search with space bar
