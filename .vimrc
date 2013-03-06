@@ -10,6 +10,12 @@
 	let g:Powerline_symbols = 'fancy'
 "}
 
+"NERDTree
+"{
+	let g:NERDTreeWinSize = 40
+"}
+
+
 " Pathogen
 "{
 	" Ignore list
@@ -22,6 +28,8 @@
 		call add(g:pathogen_disabled, 'numbers')
 	endif
 
+	let g:solarized_visibility='low'
+
 	call pathogen#infect()
 	call pathogen#helptags()
 "}
@@ -33,7 +41,14 @@
 	"let g:solarized_termcolors=16
 	set background=dark
 	colorscheme solarized
+	call togglebg#map("<F5>")
 "}
+
+"JSHint
+"{
+    let g:jshintconfig = "$HOME/.jshintrc"
+"}
+
 
 " Command T
 "{
@@ -98,6 +113,11 @@
 	set pastetoggle=<F2>
 
 "}
+"
+"GitGutter
+"{
+	highlight clear SignColumn
+"}
 
 " File
 "{
@@ -106,7 +126,7 @@
 
 	" Use Unix as the standard file type
 	set ffs=unix,dos,mac
-"} 
+"}
 
 "Leader Commands
 "}
@@ -119,11 +139,25 @@
 
 	" Select pasted text
 	nnoremap <leader>v V`]
-	noremap <F2> :set invpaste paste?<CR>
+	noremap <leader>p :set invpaste paste?<CR>
 	set pastetoggle=<F2>
 
 	" put new split window on the right
 	set splitright
+"}
+
+" Invisible Chars
+"{
+	" Shortcut to rapidly toggle `set list`
+	nmap <leader>l :set list!<CR>
+	
+	" Use the same symbols as TextMate for tabstops and EOLs
+	set listchars=trail:☢,tab:▸\ ,eol:¬
+
+	"Invisible character colors
+	"highlight NonText ctermfg=240
+	"highlight SpecialKey ctermfg=240
+
 "}
 
 " Window and file management
