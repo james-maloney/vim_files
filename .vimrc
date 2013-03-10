@@ -152,11 +152,7 @@
 	nmap <leader>l :set list!<CR>
 	
 	" Use the same symbols as TextMate for tabstops and EOLs
-	set listchars=trail:☢,tab:▸\ ,eol:¬
-
-	"Invisible character colors
-	"highlight NonText ctermfg=240
-	"highlight SpecialKey ctermfg=240
+	set listchars=trail:☢,tab:\|\ ,eol:¬
 
 "}
 
