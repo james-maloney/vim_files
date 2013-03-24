@@ -7,6 +7,7 @@ My Vim setup
 Upgrade vim using Homebrew. Most default Vim installs are not compiled with +clipboard or +ruby. +clipboard is a must for me and +ruby is required for Command-T
 
 `brew install hg` 
+
 `brew install https://raw.github.com/AndrewVos/homebrew-alt/master/duplicates/vim.rb`
 
 Get the repo
