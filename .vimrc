@@ -13,6 +13,7 @@
 "NERDTree
 "{
 	let g:NERDTreeWinSize = 40
+	let NERDTreeShowBookmarks=1
 "}
 
 
@@ -77,10 +78,10 @@
 	nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
 	" jumps to search word as you type
 	set incsearch
-	" find as you type search
-	set incsearch
 	" highlight search terms
 	set hlsearch
+	hi Search cterm=NONE ctermfg=grey ctermbg=darkblue
+
 	" case insensitive search
 	set ignorecase
 	set smartcase
@@ -153,7 +154,7 @@
 	
 	" Use the same symbols as TextMate for tabstops and EOLs
 	set listchars=trail:☢,tab:\|\ ,eol:¬
-
+	set list
 "}
 
 " Window and file management
@@ -206,13 +207,6 @@
 	" display the current mode
 	set showmode
 
-	" highlight current line
-	" set cursorline
-	" highlight bg color of current line
-	" hi cursorline guibg=#333333
-	" highlight cursor
-	" hi CursorColumn guibg=#333333
-
 	" Improves vim cursor speed
 	set nocursorcolumn
 	set nocursorline
@@ -230,7 +224,7 @@
 	" backspace for dummys
 	set backspace=indent,eol,start
 	" No extra spaces between rows
-	set linespace=
+	set linespace=0
 	" Line numbers on
 	set nu
 	" show matching brackets/parenthesis
@@ -243,6 +237,10 @@
 	set scrolljump=5
 	" minimum lines to keep above and below cursor
 	set scrolloff=3
+
+	" Remove mvim scroll bars
+	set guioptions-=L
+	set guioptions-=r
 " }
 
 " Formatting
